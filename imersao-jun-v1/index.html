@@ -13,9 +13,9 @@
 <!-- FONTS: optional = zero CLS (não causa layout shift) -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=DM+Sans:wght@400;600;700;800&display=swap">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=DM+Sans:wght@400;600;700;800&display=swap" media="print" onload="this.media='all'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=DM+Sans:wght@400;600;700;800&display=swap"></noscript>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=DM+Sans:wght@400;600;700;800&display=optional">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=DM+Sans:wght@400;600;700;800&display=optional" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=DM+Sans:wght@400;600;700;800&display=optional"></noscript>
 
 <!-- META PIXEL (substitua SEU_PIXEL_ID) -->
 <!--
@@ -31,16 +31,16 @@
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{font-family:'DM Sans','DM Sans Fallback',system-ui,sans-serif;background:var(--cr);color:var(--tx);overflow-x:hidden}
-.top-bar{background:var(--lj);color:#fff;text-align:center;padding:10px 20px;font-size:13px;font-weight:600;letter-spacing:.8px;text-transform:uppercase;min-height:38px}
+.top-bar{background:var(--lj);color:#fff;text-align:center;padding:10px 20px;font-size:13px;font-weight:600;letter-spacing:.8px;text-transform:uppercase;height:38px;overflow:hidden}
 .top-bar span{font-weight:800}
-.countdown-bar{background:var(--dk);color:#fff;text-align:center;padding:10px 20px;font-size:13px;font-weight:600;min-height:38px}
+.countdown-bar{background:var(--dk);color:#fff;text-align:center;padding:10px 20px;font-size:13px;font-weight:600;height:38px;overflow:hidden}
 .countdown-bar .timer{display:inline-flex;gap:6px;margin-left:8px}
 .countdown-bar .timer span{background:var(--lj);padding:3px 8px;border-radius:4px;font-weight:800;font-size:14px;min-width:32px;text-align:center}
-.hero{background:linear-gradient(135deg,#1C1008,#2E1A0E 50%,#3D2318);display:grid;grid-template-columns:1.1fr .9fr;min-height:640px;height:640px;position:relative;overflow:hidden;contain:layout style}
+.hero{background:linear-gradient(135deg,#1C1008,#2E1A0E 50%,#3D2318);display:grid;grid-template-columns:1.1fr .9fr;min-height:640px;height:640px;position:relative;overflow:hidden;contain:layout size style;content-visibility:visible}
 .hero::after{content:'';position:absolute;top:0;right:0;bottom:0;width:45%;background:linear-gradient(160deg,var(--lj),var(--ljd));clip-path:polygon(15% 0%,100% 0%,100% 100%,0% 100%)}
 .hero-left{padding:70px 50px 70px 70px;display:flex;flex-direction:column;justify-content:center;z-index:2}
 .badge{display:inline-block;background:var(--lj);color:#fff;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:7px 16px;border-radius:3px;margin-bottom:26px;width:fit-content}
-.hero-title{font-family:'Playfair Display','Playfair Fallback',Georgia,serif;font-size:50px;font-weight:900;line-height:1.1;color:#fff;margin-bottom:22px}
+.hero-title{font-family:'Playfair Display','Playfair Fallback',Georgia,serif;font-size:50px;font-weight:900;line-height:1.1;color:#fff;margin-bottom:22px;min-height:110px}
 .hero-title em{color:var(--ljl);font-style:italic;display:block}
 .hero-subtitle{font-size:17px;line-height:1.7;color:rgba(255,255,255,.72);margin-bottom:36px;max-width:440px}
 .btn-primary{display:inline-block;background:linear-gradient(135deg,var(--vdb),var(--vd));color:#fff;font-family:'DM Sans',system-ui,sans-serif;font-size:15px;font-weight:800;letter-spacing:1px;text-transform:uppercase;padding:18px 36px;border-radius:6px;text-decoration:none;cursor:pointer;border:none;transition:transform .3s,box-shadow .3s;box-shadow:0 6px 24px rgba(39,174,96,.38);width:fit-content}
@@ -62,6 +62,7 @@ body{font-family:'DM Sans','DM Sans Fallback',system-ui,sans-serif;background:va
 .sh{font-family:'Playfair Display','Playfair Fallback',Georgia,serif;font-size:40px;font-weight:900;line-height:1.2;color:var(--mr);margin-bottom:18px}
 .sh em{color:var(--lj);font-style:italic}
 .ss{font-size:16px;color:var(--mrl);max-width:600px;margin:0 auto 52px;line-height:1.7}
+.below-fold{content-visibility:auto;contain-intrinsic-size:auto 600px}
 .funciona{background:#fff}
 .funciona-inner{max-width:740px;margin:0 auto;text-align:center}
 .funciona-inner p{font-size:16px;line-height:1.75;color:var(--mrl);margin-bottom:14px}
@@ -176,9 +177,9 @@ body{font-family:'DM Sans','DM Sans Fallback',system-ui,sans-serif;background:va
 .btn-white:hover{transform:translateY(-3px);box-shadow:0 14px 36px rgba(0,0,0,.3)}
 .cta-meta{margin-top:16px;font-size:13px;opacity:.65;position:relative;z-index:1}
 footer{background:var(--dk);color:rgba(255,255,255,.4);text-align:center;padding:32px 20px;font-size:13px}
-@keyframes pulse-glow{0%,100%{box-shadow:0 6px 24px rgba(39,174,96,.35)}50%{box-shadow:0 6px 36px rgba(39,174,96,.6),0 0 0 8px rgba(39,174,96,.12)}}
-.btn-primary,.btn-oferta{animation:pulse-glow 2.5s ease-in-out infinite}
-.btn-primary:hover,.btn-oferta:hover{animation:none}
+@keyframes pulse-glow{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.02);opacity:.92}}
+.btn-primary,.btn-oferta{animation:pulse-glow 2.5s ease-in-out infinite;will-change:transform,opacity}
+.btn-primary:hover,.btn-oferta:hover{animation:none;transform:translateY(-2px)}
 .sticky-cta{display:none;position:fixed;bottom:0;left:0;right:0;background:#fff;padding:12px 20px;box-shadow:0 -4px 20px rgba(0,0,0,.15);z-index:9999;text-align:center}
 .sticky-cta a{display:block;background:linear-gradient(135deg,var(--vdb),var(--vd));color:#fff;font-family:'DM Sans',system-ui,sans-serif;font-size:14px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;padding:16px 24px;border-radius:6px;text-decoration:none;box-shadow:0 4px 16px rgba(39,174,96,.35)}
 @media(max-width:900px){
@@ -226,7 +227,7 @@ footer{background:var(--dk);color:rgba(255,255,255,.4);text-align:center;padding
   </div>
 </section>
 
-<section class="s funciona">
+<section class="s funciona below-fold">
   <div class="funciona-inner">
     <div class="st">Como a imersão funciona</div>
     <h2 class="sh">Não é uma aula.<br><em>É um percurso.</em></h2>
@@ -236,7 +237,7 @@ footer{background:var(--dk);color:rgba(255,255,255,.4);text-align:center;padding
   </div>
 </section>
 
-<section class="s percurso">
+<section class="s percurso below-fold">
   <div class="sc">
     <div class="st">O percurso da imersão</div>
     <h2 class="sh">Seis etapas. Dois dias. <em>Uma virada.</em></h2>
@@ -252,7 +253,7 @@ footer{background:var(--dk);color:rgba(255,255,255,.4);text-align:center;padding
   </div>
 </section>
 
-<section class="s reconhece">
+<section class="s reconhece below-fold">
   <div class="reconhece-inner">
     <div class="sc"><h2 class="sh">Você já sabe que escola quer liderar.<br><em>E sente que ela é possível.</em></h2></div>
     <ul class="reconhece-list">
@@ -268,7 +269,7 @@ footer{background:var(--dk);color:rgba(255,255,255,.4);text-align:center;padding
   </div>
 </section>
 
-<section class="s distancia">
+<section class="s distancia below-fold">
   <div class="sc">
     <div class="st">A distância entre o desejo e a realidade</div>
     <h2 class="sh">O que ainda está entre você <em>e essa escola?</em></h2>
@@ -282,7 +283,7 @@ footer{background:var(--dk);color:rgba(255,255,255,.4);text-align:center;padding
   <div class="distancia-footer"><strong>Essa escola não é um sonho distante.</strong> É o retrato do que acontece quando quem está à frente assume a liderança com método, visão estratégica e preparo.</div>
 </section>
 
-<section class="s programacao">
+<section class="s programacao below-fold">
   <div class="sc">
     <div class="st">Programação dos dois encontros</div>
     <h2 class="sh">O que acontece <em>em cada dia</em></h2>
@@ -306,7 +307,7 @@ footer{background:var(--dk);color:rgba(255,255,255,.4);text-align:center;padding
   </div>
 </section>
 
-<section class="s bonus">
+<section class="s bonus below-fold">
   <div class="sc">
     <div class="st">Faça sua inscrição hoje e receba também</div>
     <h2 class="sh">Seis materiais exclusivos para quem <em>se inscrever agora</em></h2>
@@ -322,7 +323,7 @@ footer{background:var(--dk);color:rgba(255,255,255,.4);text-align:center;padding
   </div>
 </section>
 
-<section class="s incluido">
+<section class="s incluido below-fold">
   <div class="sc"><h2 class="sh">O que está incluído <em>na sua inscrição</em></h2></div>
   <div class="incluido-grid">
     <div class="incluido-card"><div class="ico">🎥</div><h4>2 encontros ao vivo</h4><p>Com condução da Prof. Ana Paula</p></div>
@@ -335,7 +336,7 @@ footer{background:var(--dk);color:rgba(255,255,255,.4);text-align:center;padding
   <div style="text-align:center;margin-top:40px"><a href="#oferta" class="btn-primary">GARANTIR MINHA VAGA</a></div>
 </section>
 
-<section class="s para-quem">
+<section class="s para-quem below-fold">
   <div class="sc"><h2 class="sh">Para quem é <em>e para quem não é</em></h2></div>
   <div class="pq-grid">
     <div class="pq-col sim">
@@ -362,7 +363,7 @@ footer{background:var(--dk);color:rgba(255,255,255,.4);text-align:center;padding
   </div>
 </section>
 
-<section class="s sobre">
+<section class="s sobre below-fold">
   <div class="sobre-inner">
     <div class="sobre-photo" style="position:relative;overflow:hidden;">
       <picture>
@@ -381,7 +382,7 @@ footer{background:var(--dk);color:rgba(255,255,255,.4);text-align:center;padding
   </div>
 </section>
 
-<section class="s oferta" id="oferta">
+<section class="s oferta below-fold" id="oferta">
   <div class="sc">
     <div class="st">Garanta sua vaga</div>
     <h2 class="sh">Imersão <em>Alinhe Sua Gestão</em></h2>
@@ -406,7 +407,7 @@ footer{background:var(--dk);color:rgba(255,255,255,.4);text-align:center;padding
   </div>
 </section>
 
-<section class="s faq">
+<section class="s faq below-fold">
   <div class="sc"><h2 class="sh">Ficou com <em>alguma dúvida?</em></h2></div>
   <div class="faq-list">
     <div class="faq-item"><div class="faq-q">A imersão é online?</div><div class="faq-a">Sim. A imersão acontece online e ao vivo, nos dias 15 e 16 de junho, a partir das 19h30min.</div></div>
